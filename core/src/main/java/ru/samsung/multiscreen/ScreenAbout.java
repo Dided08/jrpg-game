@@ -1,6 +1,5 @@
 package ru.samsung.multiscreen;
 
-
 import static ru.samsung.multiscreen.Main.SCR_HEIGHT;
 import static ru.samsung.multiscreen.Main.SCR_WIDTH;
 
@@ -23,6 +22,12 @@ public class ScreenAbout implements Screen {
 
     PokeButton btnBack;
 
+    // Описание игры
+    private final String gameDescription =
+        "Welcome to a thrilling JRPG adventure! Control a team of three unique heroes as they battle " +
+            "three distinct enemies in a quest for glory. Defeat foes to gather resources and upgrade " +
+            "your heroes’ skills and abilities. Strategize, grow stronger, and conquer all challenges " +
+            "in this epic journey!";
 
     public ScreenAbout(Main main) {
         this.main = main;
@@ -33,63 +38,54 @@ public class ScreenAbout implements Screen {
 
         imgBG = new Texture("bg5.jpg");
 
-        btnBack = new PokeButton(font,"Back",375,300);
-
-
-
-
+        btnBack = new PokeButton(font, "Back", 375, 300);
     }
 
     @Override
     public void show() {
-
     }
 
     @Override
     public void render(float delta) {
-        if(Gdx.input.justTouched()){
+        if (Gdx.input.justTouched()) {
             touch.set(Gdx.input.getX(), Gdx.input.getY(), 0);
             camera.unproject(touch);
 
-            if(btnBack.hit(touch.x,touch.y)){
+            if (btnBack.hit(touch.x, touch.y)) {
                 main.setScreen(main.screenMenu);
             }
         }
 
-
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(imgBG,0,0, SCR_WIDTH, SCR_HEIGHT);
-        font.draw(batch, "About", 350,1300);
-
-        btnBack.font.draw(batch,btnBack.text,btnBack.x,btnBack.y);
+        batch.draw(imgBG, 0, 0, SCR_WIDTH, SCR_HEIGHT);
+        font.draw(batch, "About", 350, 1400);
+        // Отображаем описание игры с переносом текста
+        font.draw(batch, gameDescription, 100, 1250, SCR_WIDTH - 200, 1, true);
+        btnBack.font.draw(batch, btnBack.text, btnBack.x, btnBack.y);
 
         batch.end();
     }
 
     @Override
     public void resize(int width, int height) {
-
     }
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override
     public void hide() {
-
     }
 
     @Override
     public void dispose() {
         imgBG.dispose();
-
     }
 }
+
