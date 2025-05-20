@@ -133,8 +133,12 @@ public class ScreenVillage implements Screen {
 
         font.setColor(Color.YELLOW);
         font.draw(batch, "Forge Level: " + main.forgeLevel, SCR_WIDTH / 2f - 100, FORGE_Y + ICON_HEIGHT + 30);
+        font.draw(batch, "+Dmg", SCR_WIDTH / 2f + 80, FORGE_Y + ICON_HEIGHT - 80);
         font.draw(batch, "Barracks Level: " + main.barracksLevel, SCR_WIDTH / 2f - 100, BARRACKS_Y + ICON_HEIGHT + 30);
+        font.draw(batch, "+Def", SCR_WIDTH / 2f + 80, BARRACKS_Y + ICON_HEIGHT - 80);
         font.draw(batch, "Lazaret Level: " + main.lazaretLevel, SCR_WIDTH / 2f - 100, LAZARET_Y + ICON_HEIGHT + 30);
+        font.draw(batch, "+HP", SCR_WIDTH / 2f + 80, LAZARET_Y + ICON_HEIGHT - 80);
+
 
         batch.end();
     }
