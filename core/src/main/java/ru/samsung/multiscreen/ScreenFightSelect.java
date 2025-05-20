@@ -87,11 +87,11 @@ public class ScreenFightSelect implements Screen {
 
         // Ресурсы
         font.setColor(Color.BROWN);
-        font.draw(batch, "Total Wood: " + main.totalWood, SCR_WIDTH - 400, SCR_HEIGHT - 250);
+        font.draw(batch, "Total Wood: " + main.totalWood, SCR_WIDTH - 900, SCR_HEIGHT - 150);
         font.setColor(Color.DARK_GRAY);
-        font.draw(batch, "Total Iron: " + main.totalIron, SCR_WIDTH - 400, SCR_HEIGHT - 300);
+        font.draw(batch, "Total Iron: " + main.totalIron, SCR_WIDTH - 900, SCR_HEIGHT - 200);
         font.setColor(Color.BLACK);
-        font.draw(batch, "Total Stone: " + main.totalStone, SCR_WIDTH - 400, SCR_HEIGHT - 350);
+        font.draw(batch, "Total Stone: " + main.totalStone, SCR_WIDTH - 900, SCR_HEIGHT - 250);
 
         // Отрисовка кнопок
         btnEnt1.render(batch, Color.RED);
@@ -125,3 +125,4 @@ public class ScreenFightSelect implements Screen {
         imgBG.dispose();
     }
 }
+
