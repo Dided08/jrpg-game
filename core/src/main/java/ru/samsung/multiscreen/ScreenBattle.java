@@ -135,7 +135,7 @@ public class ScreenBattle implements Screen {
             font.getData().setScale(2.0f); // Увеличенный текст
             if (victory) {
                 font.setColor(Color.GREEN);
-                font.draw(batch, "Victory!", SCR_WIDTH / 2f - 100, SCR_HEIGHT / 2f + 50);
+                font.draw(batch, "Victory!", 240, 1000);
                 font.setColor(Color.WHITE);
                 String resourceText = "";
                 if (enemyName.equals("Ent")) {
@@ -145,11 +145,11 @@ public class ScreenBattle implements Screen {
                 } else if (enemyName.equals("Golem")) {
                     resourceText = "+" + stoneCount + " Stone";
                 }
-                font.draw(batch, resourceText, SCR_WIDTH / 2f - 100, SCR_HEIGHT / 2f - 50);
+                font.draw(batch, resourceText, 260, 850);
                 System.out.println("Rendering victory screen: " + resourceText);
             } else {
                 font.setColor(Color.RED);
-                font.draw(batch, "Lose", SCR_WIDTH / 2f - 50, SCR_HEIGHT / 2f);
+                font.draw(batch, "Lose", 240, 1000);
                 System.out.println("Rendering lose screen");
             }
             font.getData().setScale(1.0f); // Сброс масштаба
@@ -212,7 +212,8 @@ public class ScreenBattle implements Screen {
 
         // Отрисовка героев (картинки)
         if (knight.isAlive()) {
-            batch.draw(imgKnight, 180, 400, 150, 150); // Центр: x=255, y=475
+            batch.draw(imgKnight, 180, 400, 150, 150);
+            font.draw(batch, "HP: " + Math.max(knight.hp, 0), 120, 600);
         } else {
             batch.setColor(1, 1, 1, 0.5f);
             batch.draw(imgKnight, 180, 400, 150, 150);
@@ -220,6 +221,7 @@ public class ScreenBattle implements Screen {
         }
         if (paladin.isAlive()) {
             batch.draw(imgPaladin, 360, 400, 150, 150); // Центр: x=435, y=475
+            font.draw(batch, "HP: " + Math.max(paladin.hp, 0), 360, 600);
         } else {
             batch.setColor(1, 1, 1, 0.5f);
             batch.draw(imgPaladin, 360, 400, 150, 150);
@@ -227,6 +229,7 @@ public class ScreenBattle implements Screen {
         }
         if (mage.isAlive()) {
             batch.draw(imgMage, 540, 400, 150, 150); // Центр: x=615, y=475
+            font.draw(batch, "HP: " + Math.max(paladin.hp, 0), 600, 600);
         } else {
             batch.setColor(1, 1, 1, 0.5f);
             batch.draw(imgMage, 540, 400, 150, 150);
